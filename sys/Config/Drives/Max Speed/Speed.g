@@ -1,0 +1,1 @@
+M203 X18000.00 Y18000.00 Z1800.00 E3600.00    ; set maximum speeds (mm/min)

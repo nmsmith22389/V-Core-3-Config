@@ -1,0 +1,1 @@
+M906 X800 Y800 Z450 E500 I30    ; set motor currents (mA) and motor idle factor in per cent

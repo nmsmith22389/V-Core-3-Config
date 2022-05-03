@@ -1,0 +1,1 @@
+M566 X900.00 Y900.00 Z240.00 E450.00 P1    ; set maximum instantaneous speed changes (mm/min)

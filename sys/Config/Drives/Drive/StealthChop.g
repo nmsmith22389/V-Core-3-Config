@@ -1,0 +1,6 @@
+M569 P0.0 S0 D3 V40     ; physical drive 0.0 goes backwards use spread cycle (Z left)
+M569 P0.1 S0 D3 V40     ; physical drive 0.1 goes backwards use spread cycle (Z back)
+M569 P0.2 S0 D3 V40     ; physical drive 0.2 goes backwards use spread cycle (Z right)
+M569 P0.3 S1 D3 V40     ; physical drive 0.3 goes forwards use spread cycle (Y)
+M569 P0.4 S1 D3 V40     ; physical drive 0.4 goes forwards use spread cycle (X)
+M569 P121.0 S1 D3 V375    ; physical drive 121.0 goes backwards use spread cycle (extruder)

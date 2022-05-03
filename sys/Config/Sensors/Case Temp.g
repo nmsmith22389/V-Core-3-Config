@@ -1,0 +1,1 @@
+M308 S2 P"temp1" Y"thermistor" A"Case" T100000 B3950 ; Configure Case Temp Sensor
