@@ -18,7 +18,7 @@ G91                                                                   ; Relative
 ;G1 E{global.SlicerRetractDistance} F{var.RetractSpeed}               ; Retract a bit
 ;G1 E{global.SlicerRetractDistance} Z0.2 F{var.RetractSpeed}          ; Retract and raise Z
 G0 X5 Y5 F3000                                                        ; Wipe out
-G0 Z10                                                                ; Raise Z more
+G0 Z40                                                                ; Raise Z more
 G90                                                                   ; Absolute positionning
 ; M82                                                                   ; Absolute extrusion mode
 
@@ -26,7 +26,8 @@ M400
 
 ; M98 P"0:/macros/Lights/Top Bar/Flash.g" N"green" C3
 
-G0 X150 Y{move.axes[1].max}                                           ; Present print
+G0 X150 Y150 F{40 * 60}
+;G0 X150 Y{move.axes[1].max}                                           ; Present print
 
 M400
 
@@ -37,7 +38,8 @@ M568 P0 A0 S0 R0
 M140 S0 R0
 M140 S-999                                                            ; Switch off bed
 
-M84 X Y E                                                             ; Disable all steppers but Z
+; M84 X Y E                                                             ; Disable all steppers but Z
+M18                                                                     ; Disable all steppers but Z
 
 ; Set mesh limits back to whole bed
-M557.1 R
+M557.1 R1

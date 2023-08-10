@@ -6,12 +6,12 @@
 var RetractDistance = exists(global.SlicerRetractDistance) ? global.SlicerRetractDistance : 1
 var RetractSpeed = exists(global.SlicerRetractSpeed) ? global.SlicerRetractSpeed : 40
 
-M83            ; relative extruder moves
-G1 E{abs(var.RetractDistance) * -1} F{var.RetractSpeed * 60}   ; retract 10mm of filament
-G91            ; relative positioning
-G1 Z15 F360     ; lift Z by 5mm
-G90            ; absolute positioning
-G1 X155 Y280 F6000 ; go to X=0 Y=0
+M83                                                          ; relative extruder moves
+G1 E{abs(var.RetractDistance) * -1} F{var.RetractSpeed * 60} ; retract filament
+G91                                                          ; relative positioning
+G1 Z15 F360                                                  ; lift Z
+G90                                                          ; absolute positioning
+G1 X155 Y280 F6000                                           ; go to pause position
 
 ; Flash
 ; M98 P"0:/macros/Lights/Top Bar/Flash.g" N"blue" C3 O500 F100

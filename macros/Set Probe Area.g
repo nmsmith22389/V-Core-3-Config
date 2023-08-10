@@ -1,6 +1,6 @@
-set global.SlicerMeshXMin = 123.068
-set global.SlicerMeshXMax = 177.029
-set global.SlicerMeshYMin = 120.515
-set global.SlicerMeshYMax = 174.485
+set global.SlicerMeshXMin = 114.238
+set global.SlicerMeshXMax = 193.427
+set global.SlicerMeshYMin = 106.874
+set global.SlicerMeshYMax = 188.701
 
 M557.1

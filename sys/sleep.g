@@ -40,4 +40,4 @@ M106 S0                                                               ; Turn-off
 M84 X Y E                                                             ; Disable all steppers but Z
 
 ; Set mesh limits back to whole bed
-M557.1 R
+M557.1 R1

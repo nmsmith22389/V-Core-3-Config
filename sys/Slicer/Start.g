@@ -33,7 +33,7 @@ if fans[tools[0].fans[0]].requestedValue != 0
 if state.currentTool != 0
     T0
 
-M568 P0 S{floor(global.SlicerETemp / 2)} R{floor(global.SlicerETemp / 2)}                       ; Set tool temps
+M568 P0 S{global.SlicerETemp} R{floor(global.SlicerETemp / 2)} A1                       ; Set tool temps
 M140 S{global.SlicerBTemp} R{global.SlicerBTemp}                          ; Set bed temp
 M116 H0                                                                   ; Wait for bed to reach temp
 
@@ -43,21 +43,36 @@ M116 H0                                                                   ; Wait
 ; TODO: If Tramming failed check if need rehome and try again. Do in separate file
 ;if result != 0
 ;	G0.1 P Z25
-	
+
 
 ;M400
 ;G4 S1
 
-G28 Z
-;G28
+;G28 Z
+G28
 
-G4 P500
+; G4 P500
 M400
+
+; TODO: Use with `exists()` to establish safe defaults/backups.
+; set global.SlicerMeshXMin = 40
+; set global.SlicerMeshXMax = 270
+; set global.SlicerMeshYMin = 40
+; set global.SlicerMeshYMax = 260
 
 ; Automesh
 M557.1
 G4 S1
 G29
+
+if result != 0
+    M400
+    M98 P"Commands/Probe/Reset.g"
+    G4 S1
+    G29
+
+    if result != 0
+        abort "Mesh probing failed."
 
 M400
 
@@ -67,7 +82,7 @@ M400
 ;	abort "Mesh leveling failed!"
 ;	;M98 P"0:/macros/Calibration and Tuning/Fast BLtouch Mesh.g"
 ;	G29
-;	
+;
 ;	if result != 0
 ;		M291 P"<b class='error--text'>Mesh probing failed!</b><br><br>Continue?" R"Warning" S3
 ;else
@@ -79,15 +94,19 @@ M400
 ; This not only waits for the hotend to reach temp but
 ; also gives time to clear crap from the nozzle.
 
-G0.1 Z50                            ; Center the nozzle before waiting
+; G0.1 Z50                            ; Center the nozzle before waiting
+G0 X155 Y280 Z50 F6000                ; Center the nozzle before waiting
 ;G0 Z50 F900
 ;M400
-M568 P0 S{global.SlicerETemp} R{global.SlicerETemp}                       ; Set tool temps
+M568 P0 A2                       ; Set tool temps
 M116 P0                                                                   ; Wait for tool to reach temp
 
 ; Purge Sequence
 ;;;G12 P
 
 ;;;G0.1
+
+; Set Accel to slow for first layer
+; M98 P"0:/sys/Config/Drives/Acceleration/Slow.g"
 
 G4 S3                                                                     ; Wait for 1 second

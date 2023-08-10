@@ -10,13 +10,13 @@ var AttemptCount = 5
 var MaxDeviation = 0.01
 
 var ScrewLeftX = 40
-var ScrewLeftY = 10
+var ScrewLeftY = 40
 
 var ScrewBackX = 155
-var ScrewBackY = 275
+var ScrewBackY = 230
 
-var ScrewRightX = 270
-var ScrewRightY = 10
+var ScrewRightX = 260
+var ScrewRightY = 40
 
 M290 R0 S0	; clear baby stepping
 M561		; clear any bed transform

@@ -22,6 +22,7 @@ M98 P"Config/Axes/Endstops.g"
 
 ; Z-Probe
 M98 P"Config/Probe/Input.g"
+G4 P250
 M98 P"Config/Probe/Probe_Config.g"
 
 ; Heaters
@@ -38,15 +39,18 @@ M98 P"Config/Fans/All.g"
 M98 P"Config/Tools/Tool 0.g"
 
 ; Toolboard Buttons
-M98 P"Config/Buttons/All.g"
+; M98 P"Config/Buttons/All.g"
 
 ; Miscellaneous
-M98 P"Config/Misc/LEDs.g"
+; M98 P"Config/Misc/LEDs.g"
 
 M98 P"Config/Misc/MCU Temp.g"
 
 ; Load saved parameters from non-volatile memory
 M501
+
+; select tool 0
+T0
 
 ; After config section
 M98 P"Slicer/InitVars.g"    ; Initialize slicer global vars

@@ -1,0 +1,1 @@
+M308 S3 Y"drivers" A"DRIVERS"  ; configure sensor 2 as temperature warning and overheat flags on the TMC2660 on Duet

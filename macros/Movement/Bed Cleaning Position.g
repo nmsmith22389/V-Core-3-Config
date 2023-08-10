@@ -1,9 +1,10 @@
 var PosX = 155
-var PosY = 300
-var PosZ = 75
+var PosY = 200
+var PosZ = 200
 var Speed = 4500
 
-if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
-	G28
+M98 P"0:/macros/Movement/Conditional Home.g"
+
+G4 P500
 
 G0 X{var.PosX} Y{var.PosY} Z{var.PosZ} F{var.Speed}

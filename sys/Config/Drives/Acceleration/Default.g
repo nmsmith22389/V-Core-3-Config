@@ -1,3 +1,5 @@
-M201 X3000.00 Y3000.00 Z100.00 E3600.00 ; set accelerations (mm/s^2)
+var AccelMax = 10000 ; 10,000
 
-M204 P1000 T2000
+M201 X{var.AccelMax} Y{var.AccelMax} Z400.00 E2400.00 ; set accelerations (mm/s^2)
+
+M204 P1600 T2600

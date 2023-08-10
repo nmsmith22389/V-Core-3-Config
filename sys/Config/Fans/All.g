@@ -1,5 +1,5 @@
 ; M98 P"Config/Fans/Case.g"
 M98 P"Config/Fans/Hotend.g"
-; M98 P"Config/Fans/Motherboard.g"
+M98 P"Config/Fans/Motherboard.g"
 M98 P"Config/Fans/Part.g"
 M98 P"Config/Fans/PSU.g"

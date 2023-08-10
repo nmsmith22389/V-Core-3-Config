@@ -6,7 +6,7 @@ set global.HomingX = true
 
 set global.HomingY = true
 
-M98 P"Config/Drives/Acceleration/Slow.g" ; reduce acceleration for homing moves
+; M98 P"Config/Drives/Acceleration/Slow.g" ; reduce acceleration for homing moves
 
 G91             ; relative positioning
 
@@ -24,7 +24,7 @@ G1 H1 X-625 Y605 F360   ; Move slowly to X and Y axis endstops once more (second
 G1 H1 X-625 F360        ; Move slowly to X and Y axis endstops once more (second pass)
 G1 H1 Y605 F360         ; Move slowly to X and Y axis endstops once more (second pass)
 
-M98 P"Config/Drives/Acceleration/Default.g" ; return to full acceleration
+; M98 P"Config/Drives/Acceleration/Default.g" ; return to full acceleration
 
 set global.HomingX = false
 set global.HomingY = false

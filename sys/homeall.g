@@ -2,11 +2,10 @@
 ; called to home all axes
 
 ;> BLTouch
-M98 P"0:/macros/Diagnostic/BLTouch/Probe Alarm Release (Reset).g"	; Precautionary alarm release
-M98 P"0:/macros/Diagnostic/BLTouch/Probe Retract.g"					; Ensure the pin is raised
+M98 P"0:/macros/Diagnostic/BLTouch/Probe Alarm Release (Reset).g" ; Precautionary alarm release
+M402 ; Ensure the pin is raised
 
-if !global.HomingAll
-	M98 P"0:/macros/Movement/StealthChop Tuning.g"
+M98 P"0:/macros/Movement/StealthChop Tuning.g"
 
 set global.HomingAll = true
 
@@ -14,7 +13,7 @@ set global.HomingAll = true
 set global.HomingX = true
 set global.HomingY = true
 
-M98 P"Config/Drives/Acceleration/Slow.g" ; reduce acceleration for homing moves
+; M98 P"Config/Drives/Acceleration/Slow.g" ; reduce acceleration for homing moves
 
 G91				; relative positioning
 
@@ -32,7 +31,7 @@ G1 H1 X-625 Y605 F360   ; Move slowly to X and Y axis endstops once more (second
 G1 H1 X-625 F360        ; Move slowly to X and Y axis endstops once more (second pass)
 G1 H1 Y605 F360         ; Move slowly to X and Y axis endstops once more (second pass)
 
-M98 P"Config/Drives/Acceleration/Default.g" ; return to full acceleration
+; M98 P"Config/Drives/Acceleration/Default.g" ; return to full acceleration
 
 set global.HomingX = false
 set global.HomingY = false
@@ -46,6 +45,7 @@ M98 P"homez.g"
 
 ; If not printing then move the print head to a good location
 if state.status != "processing"	;if NOT printing
+	G4 P500
 	G0.1
 
 set global.HomingAll = false

@@ -8,6 +8,10 @@ M98 P"Config/Vars.g"
 ; Pre
 M98 P"Config/Pre/Init.g"
 
+; Slicer Globals
+; TODO: Consider moving to "/Config/Vars.g" or "/Config/Pre/Init.g"
+M98 P"Slicer/InitVars.g"    ; Initialize slicer global vars
+
 ; Drives
 M98 P"Config/Drives/Init.g"
 
@@ -30,7 +34,7 @@ M98 P"Config/Heaters/Bed.g"
 M98 P"Config/Heaters/Hotend.g"
 
 ; Case Temp
-M98 P"Config/Sensors/Case Temp.g"
+M98 P"Config/Sensors/All.g"
 
 ; Fans
 M98 P"Config/Fans/All.g"
@@ -53,4 +57,4 @@ M501
 T0
 
 ; After config section
-M98 P"Slicer/InitVars.g"    ; Initialize slicer global vars
+;M98 P"Slicer/InitVars.g"    ; Initialize slicer global vars
